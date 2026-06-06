@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rahim Events | Wedding & Party Production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --pink:#ff2d78;--cyan:#00e5ff;--yellow:#ffe600;
+  --purple:#9b00ff;--orange:#ff6b00;--green:#00ff9d;
+  --dark:#06040f;--darker:#030208;--card:#0e0a1e;
+  --white:#ffffff;--muted:#a09bc0;
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'Nunito',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--darker);color:var(--white);font-family:var(--font-body);font-weight:400;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--darker);}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--pink),var(--purple));}
+
+/* PARTICLES */
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.particle{position:absolute;border-radius:50%;opacity:0;animation:float-up linear infinite;}
+@keyframes float-up{0%{transform:translateY(110vh) scale(0);opacity:0;}10%{opacity:0.6;}90%{opacity:0.3;}100%{transform:translateY(-10vh) scale(1);opacity:0;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:18px 56px;background:rgba(6,4,15,0.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,45,120,0.15);transition:all 0.3s;}
+nav.scrolled{padding:12px 56px;background:rgba(6,4,15,0.97);border-bottom-color:rgba(255,45,120,0.3);}
+.nav-logo{font-family:var(--font-display);font-size:1.9rem;letter-spacing:0.05em;text-decoration:none;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.3s;position:relative;padding-bottom:4px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));transition:width 0.3s;}
+.nav-links a:hover{color:var(--white);}
+.nav-links a:hover::after{width:100%;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:300;}
+.hamburger span{display:block;width:26px;height:2px;background:var(--pink);transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(6,4,15,0.98);z-index:250;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--white);text-decoration:none;font-family:var(--font-display);font-size:2.8rem;letter-spacing:0.08em;transition:color 0.3s;}
+.mobile-menu a:hover{color:var(--pink);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;padding:120px 40px 100px;}
+.hero-backdrop{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 50%,rgba(255,45,120,0.18) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 40%,rgba(0,229,255,0.15) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 50% 90%,rgba(155,0,255,0.12) 0%,transparent 50%),var(--darker);}
+.hero-ring{position:absolute;width:700px;height:700px;border-radius:50%;border:1px solid rgba(255,45,120,0.12);top:50%;left:50%;transform:translate(-50%,-50%);animation:spin-slow 30s linear infinite;}
+.hero-ring::before{content:'';position:absolute;inset:40px;border-radius:50%;border:1px solid rgba(0,229,255,0.1);animation:spin-slow 20s linear infinite reverse;}
+@keyframes spin-slow{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border:1px solid rgba(255,230,0,0.4);border-radius:50px;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:28px;position:relative;z-index:1;animation:fade-up 1s ease 0.2s both;background:rgba(255,230,0,0.05);}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 8px var(--yellow);animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero-title{font-family:var(--font-display);font-size:clamp(4rem,12vw,9.5rem);line-height:0.92;letter-spacing:0.03em;position:relative;z-index:1;animation:fade-up 1s ease 0.4s both;}
+.hero-title .line1{display:block;background:linear-gradient(90deg,var(--white) 0%,var(--cyan) 50%,var(--white) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 4s linear infinite;}
+.hero-title .line2{display:block;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--orange),var(--pink));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 3s linear infinite;}
+@keyframes shine{to{background-position:200% center;}}
+.hero-sub{font-size:0.8rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-top:24px;position:relative;z-index:1;animation:fade-up 1s ease 0.6s both;}
+.hero-sub span{color:var(--cyan);}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:44px;position:relative;z-index:1;animation:fade-up 1s ease 0.8s both;}
+.btn{display:inline-block;padding:14px 36px;font-family:var(--font-body);font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;border-radius:4px;transition:all 0.3s;}
+.btn-glow{background:linear-gradient(135deg,var(--pink),var(--purple));color:var(--white);box-shadow:0 0 24px rgba(255,45,120,0.5);}
+.btn-glow:hover{box-shadow:0 0 40px rgba(255,45,120,0.8);transform:translateY(-2px);}
+.btn-outline{background:transparent;border:2px solid var(--cyan);color:var(--cyan);}
+.btn-outline:hover{background:rgba(0,229,255,0.1);box-shadow:0 0 20px rgba(0,229,255,0.3);transform:translateY(-2px);}
+.hero-scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1;animation:fade-up 1s ease 1.2s both;}
+.scroll-dot{width:28px;height:46px;border:2px solid rgba(255,45,120,0.4);border-radius:14px;display:flex;justify-content:center;padding-top:8px;}
+.scroll-dot::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--pink);animation:scroll-bounce 1.8s ease-in-out infinite;}
+@keyframes scroll-bounce{0%{transform:translateY(0);opacity:1;}80%{transform:translateY(14px);opacity:0;}100%{transform:translateY(0);opacity:0;}}
+@keyframes fade-up{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+
+/* SHARED */
+.section-wrap{position:relative;z-index:1;}
+.section-inner{max-width:1200px;margin:0 auto;padding:100px 56px;}
+.section-tag{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;padding:6px 16px;border-radius:3px;margin-bottom:18px;}
+.tag-pink{background:rgba(255,45,120,0.15);color:var(--pink);border:1px solid rgba(255,45,120,0.3);}
+.tag-cyan{background:rgba(0,229,255,0.1);color:var(--cyan);border:1px solid rgba(0,229,255,0.25);}
+.tag-yellow{background:rgba(255,230,0,0.1);color:var(--yellow);border:1px solid rgba(255,230,0,0.25);}
+.tag-purple{background:rgba(155,0,255,0.12);color:#c97fff;border:1px solid rgba(155,0,255,0.3);}
+.section-title{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4.5rem);line-height:1;letter-spacing:0.04em;}
+.grad-pink{background:linear-gradient(90deg,var(--white),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.grad-cyan{background:linear-gradient(90deg,var(--cyan),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.grad-yellow{background:linear-gradient(90deg,var(--yellow),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.section-line{width:80px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--cyan));margin:20px 0 32px;}
+
+/* ABOUT */
+#about{background:linear-gradient(180deg,var(--darker) 0%,var(--dark) 100%);}
+.about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center;}
+.about-img-box{position:relative;}
+.about-photo{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#1a0730,#0d0d2a);border:2px solid rgba(255,45,120,0.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:rgba(255,45,120,0.4);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;position:relative;overflow:hidden;}
+.about-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 30%,rgba(255,45,120,0.08),transparent 60%);}
+.about-photo svg{width:56px;fill:currentColor;}
+.photo-corner{position:absolute;width:28px;height:28px;border-color:var(--cyan);border-style:solid;}
+.photo-corner.tl{top:-6px;left:-6px;border-width:2px 0 0 2px;}
+.photo-corner.tr{top:-6px;right:-6px;border-width:2px 2px 0 0;}
+.photo-corner.bl{bottom:-6px;left:-6px;border-width:0 0 2px 2px;}
+.photo-corner.br{bottom:-6px;right:-6px;border-width:0 2px 2px 0;}
+.about-glow{position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(155,0,255,0.25);filter:blur(60px);top:-40px;right:-60px;pointer-events:none;}
+.about-text p{font-size:0.9rem;color:var(--muted);line-height:1.9;margin-bottom:16px;}
+.about-text strong{color:var(--white);}
+.about-text em{color:var(--cyan);font-style:normal;}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px;}
+.social-card{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:8px;text-decoration:none;border:1px solid;transition:all 0.3s;position:relative;overflow:hidden;}
+.social-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;}
+.social-card:hover::before{opacity:1;}
+.social-card:hover{transform:translateY(-3px);}
+.social-card.fb{border-color:rgba(24,119,242,0.35);background:rgba(24,119,242,0.06);}
+.social-card.fb::before{background:rgba(24,119,242,0.08);}
+.social-card.fb:hover{box-shadow:0 0 20px rgba(24,119,242,0.3);}
+.social-card.ig{border-color:rgba(255,45,120,0.35);background:rgba(255,45,120,0.06);}
+.social-card.ig::before{background:rgba(255,45,120,0.08);}
+.social-card.ig:hover{box-shadow:0 0 20px rgba(255,45,120,0.3);}
+.social-card.yt{border-color:rgba(255,0,0,0.35);background:rgba(255,0,0,0.06);}
+.social-card.yt::before{background:rgba(255,0,0,0.08);}
+.social-card.yt:hover{box-shadow:0 0 20px rgba(255,0,0,0.3);}
+.social-card.tt{border-color:rgba(0,229,255,0.35);background:rgba(0,229,255,0.06);}
+.social-card.tt::before{background:rgba(0,229,255,0.08);}
+.social-card.tt:hover{box-shadow:0 0 20px rgba(0,229,255,0.3);}
+.social-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.social-icon svg{width:22px;height:22px;fill:currentColor;}
+.fb .social-icon{background:rgba(24,119,242,0.2);color:#1877f2;}
+.ig .social-icon{background:rgba(255,45,120,0.2);color:var(--pink);}
+.yt .social-icon{background:rgba(255,0,0,0.2);color:#ff0000;}
+.tt .social-icon{background:rgba(0,229,255,0.2);color:var(--cyan);}
+.social-info{position:relative;z-index:1;}
+.social-name{font-size:0.8rem;font-weight:700;color:var(--white);}
+.social-handle{font-size:0.68rem;color:var(--muted);margin-top:2px;}
+
+/* ═══════════════════════════════════════════════
+   SERVICES — BACKGROUND IMAGE CARDS
+═══════════════════════════════════════════════ */
+#services{background:var(--dark);position:relative;overflow:hidden;}
+#services::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,45,120,0.08),transparent 70%);top:-200px;right:-200px;pointer-events:none;}
+#services::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,0.07),transparent 70%);bottom:-200px;left:-200px;pointer-events:none;}
+.services-header{text-align:center;margin-bottom:64px;}
+.services-header .section-line{margin:20px auto 0;}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  position:relative;z-index:1;
+}
+
+/* ── THE SERVICE CARD ── */
+.service-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
+  min-height:340px;
+  cursor:default;
+
+  /* ── background image setup ──
+     Set background-image inline on each card in the HTML.
+     This CSS handles sizing, position, and the overlay automatically. */
+  background-color:var(--card);          /* fallback when no image */
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  border:1px solid rgba(255,255,255,0.06);
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* dark overlay — always present, darkens on hover */
+.service-card::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(6,4,15,0.97) 0%,
+    rgba(6,4,15,0.80) 40%,
+    rgba(6,4,15,0.55) 70%,
+    rgba(6,4,15,0.30) 100%
+  );
+  transition:background 0.45s ease;
+  z-index:1;
+}
+
+/* coloured accent overlay — unique per card, appears on hover */
+.service-card::after{
+  content:'';
+  position:absolute;inset:0;
+  opacity:0;
+  transition:opacity 0.45s ease;
+  z-index:2;
+}
+.service-card:nth-child(1)::after{background:linear-gradient(135deg,rgba(255,45,120,0.25) 0%,transparent 60%);}
+.service-card:nth-child(2)::after{background:linear-gradient(135deg,rgba(0,229,255,0.22) 0%,transparent 60%);}
+.service-card:nth-child(3)::after{background:linear-gradient(135deg,rgba(255,230,0,0.22) 0%,transparent 60%);}
+.service-card:nth-child(4)::after{background:linear-gradient(135deg,rgba(155,0,255,0.25) 0%,transparent 60%);}
+.service-card:nth-child(5)::after{background:linear-gradient(135deg,rgba(0,255,157,0.22) 0%,transparent 60%);}
+.service-card:nth-child(6)::after{background:linear-gradient(135deg,rgba(255,107,0,0.25) 0%,transparent 60%);}
+
+.service-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.service-card:hover::before{
+  background:linear-gradient(
+    to top,
+    rgba(6,4,15,0.98) 0%,
+    rgba(6,4,15,0.88) 40%,
+    rgba(6,4,15,0.70) 70%,
+    rgba(6,4,15,0.45) 100%
+  );
+}
+.service-card:hover::after{opacity:1;}
+
+/* content sits above both overlays */
+.service-content{
+  position:relative;
+  z-index:3;
+  padding:32px 28px;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+/* icon */
+.service-icon{
+  width:52px;height:52px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  transition:transform 0.3s;
+  flex-shrink:0;
+}
+.service-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.service-card:hover .service-icon{transform:scale(1.12);}
+.ic-1{background:rgba(255,45,120,0.2);color:var(--pink);border:1px solid rgba(255,45,120,0.35);}
+.ic-2{background:rgba(0,229,255,0.15);color:var(--cyan);border:1px solid rgba(0,229,255,0.3);}
+.ic-3{background:rgba(255,230,0,0.15);color:var(--yellow);border:1px solid rgba(255,230,0,0.3);}
+.ic-4{background:rgba(155,0,255,0.2);color:#c97fff;border:1px solid rgba(155,0,255,0.35);}
+.ic-5{background:rgba(0,255,157,0.15);color:var(--green);border:1px solid rgba(0,255,157,0.3);}
+.ic-6{background:rgba(255,107,0,0.2);color:var(--orange);border:1px solid rgba(255,107,0,0.35);}
+
+.service-card h3{
+  font-family:var(--font-display);
+  font-size:1.7rem;letter-spacing:0.05em;
+  color:var(--white);margin-bottom:10px;
+  text-shadow:0 2px 12px rgba(0,0,0,0.8);
+}
+.service-card p{
+  font-size:0.80rem;color:rgba(200,195,220,0.85);
+  line-height:1.75;
+  text-shadow:0 1px 6px rgba(0,0,0,0.9);
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease, opacity 0.4s ease;
+  opacity:0;
+}
+.service-card:hover p{max-height:120px;opacity:1;}
+
+.s-tag{
+  display:inline-block;margin-top:14px;
+  font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  padding:4px 14px;border-radius:20px;
+  transition:transform 0.3s;
+}
+.service-card:hover .s-tag{transform:translateY(-2px);}
+.s-tag-1{background:rgba(255,45,120,0.2);color:var(--pink);border:1px solid rgba(255,45,120,0.4);}
+.s-tag-2{background:rgba(0,229,255,0.15);color:var(--cyan);border:1px solid rgba(0,229,255,0.35);}
+.s-tag-3{background:rgba(255,230,0,0.15);color:var(--yellow);border:1px solid rgba(255,230,0,0.35);}
+.s-tag-4{background:rgba(155,0,255,0.2);color:#c97fff;border:1px solid rgba(155,0,255,0.4);}
+.s-tag-5{background:rgba(0,255,157,0.15);color:var(--green);border:1px solid rgba(0,255,157,0.35);}
+.s-tag-6{background:rgba(255,107,0,0.2);color:var(--orange);border:1px solid rgba(255,107,0,0.4);}
+
+/* card number — top right watermark */
+.service-num{
+  position:absolute;top:20px;right:22px;z-index:3;
+  font-family:var(--font-display);font-size:3.5rem;
+  color:rgba(255,255,255,0.07);line-height:1;
+  transition:color 0.4s;
+}
+.service-card:hover .service-num{color:rgba(255,255,255,0.13);}
+
+/* ── NO IMAGE fallback gradient per card ── */
+.service-card.no-img-1{background-image:linear-gradient(135deg,#1a0015,#05001a,#000510);}
+.service-card.no-img-2{background-image:linear-gradient(135deg,#001a1a,#00050f,#001014);}
+.service-card.no-img-3{background-image:linear-gradient(135deg,#1a1400,#0a0800,#0d0d00);}
+.service-card.no-img-4{background-image:linear-gradient(135deg,#0f0020,#08001a,#050010);}
+.service-card.no-img-5{background-image:linear-gradient(135deg,#001a0d,#000f08,#001209);}
+.service-card.no-img-6{background-image:linear-gradient(135deg,#1a0800,#0d0400,#100500);}
+
+/* ═══════════════════════════════════════════
+   PORTFOLIO — STACKING POLAROID DESIGN
+═══════════════════════════════════════════ */
+#portfolio{background:linear-gradient(180deg,var(--dark) 0%,var(--darker) 100%);}
+.portfolio-header{margin-bottom:56px;text-align:center;}
+.portfolio-header .section-line{margin:20px auto;}
+
+/* category tab pills */
+.cat-tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:32px;}
+.cat-tab{
+  padding:10px 26px;border-radius:50px;
+  font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  color:var(--muted);cursor:pointer;transition:all 0.35s;
+}
+.cat-tab:hover{background:rgba(255,255,255,0.08);color:var(--white);}
+.cat-tab.active{background:linear-gradient(135deg,var(--pink),var(--purple));border-color:transparent;color:var(--white);box-shadow:0 0 20px rgba(255,45,120,0.4);}
+
+/* outer wrapper per category — hidden/shown by JS */
+.stack-section{display:none;}
+.stack-section.active{display:block;}
+
+/* category label row */
+.stack-label{
+  display:flex;align-items:center;gap:16px;margin-bottom:40px;
+}
+.stack-label-dot{
+  width:10px;height:10px;border-radius:50%;flex-shrink:0;
+  box-shadow:0 0 12px currentColor;
+}
+.stack-label h3{
+  font-family:var(--font-display);
+  font-size:clamp(1.6rem,3.5vw,2.4rem);
+  letter-spacing:0.06em;color:var(--white);
+}
+.stack-label span{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  padding:4px 14px;border-radius:20px;margin-left:4px;
+}
+
+/* ── THE STACK ROW ── */
+.stack-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:0;
+  padding:40px 0 60px;
+  position:relative;
+  min-height:360px;
+}
+
+/* each polaroid card */
+.polaroid{
+  position:absolute;
+  width:220px;
+  background:#fff;
+  padding:10px 10px 36px;
+  border-radius:3px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.4);
+  cursor:pointer;
+  transition:transform 0.4s cubic-bezier(.34,1.56,.64,1),
+             box-shadow 0.4s ease,
+             z-index 0s;
+  transform-origin:center bottom;
+  /* stagger rotations set inline per card */
+}
+.polaroid:hover{
+  transform:rotate(0deg) scale(1.12) translateY(-18px) !important;
+  box-shadow:0 28px 60px rgba(0,0,0,0.7), 0 0 30px rgba(255,45,120,0.25);
+  z-index:50 !important;
+}
+
+/* photo area inside polaroid */
+.polaroid-img{
+  width:100%;aspect-ratio:1/1;
+  background:var(--card);
+  overflow:hidden;position:relative;
+}
+.polaroid-img img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+  transition:transform 0.5s ease;
+}
+.polaroid:hover .polaroid-img img{transform:scale(1.08);}
+
+/* placeholder shown before real image */
+.polaroid-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;
+}
+.polaroid-placeholder svg{width:32px;fill:none;stroke:rgba(160,155,192,0.35);stroke-width:1.5;}
+.polaroid-placeholder span{font-size:0.55rem;letter-spacing:0.12em;color:rgba(160,155,192,0.3);text-transform:uppercase;}
+
+/* caption at bottom of polaroid */
+.polaroid-caption{
+  text-align:center;margin-top:8px;
+  font-size:0.68rem;font-weight:700;letter-spacing:0.06em;
+  color:#333;font-family:var(--font-body);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* stack container — positions cards relative */
+.stack-container{
+  position:relative;
+  width:100%;
+  height:340px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* numbered badge top-right of polaroid */
+.polaroid-badge{
+  position:absolute;top:-8px;right:-8px;
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.6rem;font-weight:700;color:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,0.4);
+  z-index:2;
+}
+
+/* "fan out" hint text */
+.stack-hint{
+  text-align:center;margin-top:8px;
+  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(160,155,192,0.35);
+}
+
+/* Videos section — same as before */
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.video-card{background:var(--card);border-radius:12px;border:1px solid rgba(255,255,255,0.07);overflow:hidden;transition:border-color 0.3s,transform 0.3s;}
+.video-card:hover{border-color:rgba(0,229,255,0.4);transform:translateY(-4px);}
+.yt-wrap{position:relative;width:100%;padding-top:56.25%;background:#000;}
+.yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+.yt-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(135deg,#0a0030,#030a1a);cursor:pointer;}
+.yt-play-btn{width:64px;height:64px;border-radius:50%;background:rgba(255,0,0,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 0 28px rgba(255,0,0,0.5);transition:transform 0.3s,box-shadow 0.3s;}
+.yt-placeholder:hover .yt-play-btn{transform:scale(1.12);box-shadow:0 0 44px rgba(255,0,0,0.8);}
+.yt-play-btn svg{width:28px;height:28px;fill:white;margin-left:4px;}
+.yt-placeholder p{font-size:0.7rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;}
+.video-info{padding:18px 20px;}
+.video-info h4{font-family:var(--font-display);font-size:1.2rem;letter-spacing:0.04em;color:var(--white);margin-bottom:6px;}
+.video-info p{font-size:0.76rem;color:var(--muted);line-height:1.6;}
+.video-meta{display:flex;align-items:center;gap:10px;margin-top:12px;}
+.video-tag{font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 12px;border-radius:3px;background:rgba(0,229,255,0.12);color:var(--cyan);}
+.yt-howto{margin-top:28px;padding:20px 24px;border-radius:10px;border:1px dashed rgba(255,230,0,0.25);background:rgba(255,230,0,0.04);display:flex;gap:14px;align-items:flex-start;}
+.yt-howto-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+.yt-howto p{font-size:0.78rem;color:var(--muted);line-height:1.7;}
+.yt-howto code{background:rgba(255,230,0,0.12);color:var(--yellow);padding:2px 8px;border-radius:3px;font-family:monospace;font-size:0.8rem;}
+
+/* CONTACT */
+#contact{background:var(--darker);position:relative;overflow:hidden;}
+#contact::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(155,0,255,0.1),transparent 70%);top:-200px;left:-200px;pointer-events:none;}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-left p{font-size:0.88rem;color:var(--muted);line-height:1.9;margin-bottom:44px;}
+.contact-cards{display:flex;flex-direction:column;gap:16px;}
+.contact-card{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:10px;border:1px solid;text-decoration:none;transition:all 0.3s;position:relative;overflow:hidden;}
+.contact-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;}
+.contact-card:hover::before{opacity:1;}
+.contact-card:hover{transform:translateX(4px);}
+.cc-phone{border-color:rgba(0,255,157,0.25);background:rgba(0,255,157,0.04);}
+.cc-phone::before{background:rgba(0,255,157,0.06);}
+.cc-phone:hover{box-shadow:0 0 20px rgba(0,255,157,0.15);}
+.cc-email{border-color:rgba(255,230,0,0.25);background:rgba(255,230,0,0.04);}
+.cc-email::before{background:rgba(255,230,0,0.06);}
+.cc-email:hover{box-shadow:0 0 20px rgba(255,230,0,0.15);}
+.cc-wa{border-color:rgba(37,211,102,0.3);background:rgba(37,211,102,0.05);}
+.cc-wa::before{background:rgba(37,211,102,0.07);}
+.cc-wa:hover{box-shadow:0 0 20px rgba(37,211,102,0.2);}
+.cc-msg{border-color:rgba(0,229,255,0.25);background:rgba(0,229,255,0.04);}
+.cc-msg::before{background:rgba(0,229,255,0.06);}
+.cc-msg:hover{box-shadow:0 0 20px rgba(0,229,255,0.15);}
+.cc-icon{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;}
+.cc-icon svg{width:22px;height:22px;fill:currentColor;}
+.phone-ic{background:rgba(0,255,157,0.15);color:var(--green);}
+.email-ic{background:rgba(255,230,0,0.15);color:var(--yellow);}
+.wa-ic{background:rgba(37,211,102,0.15);color:#25d366;}
+.msg-ic{background:rgba(0,229,255,0.15);color:var(--cyan);}
+.cc-text{position:relative;z-index:1;}
+.cc-label{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);}
+.cc-value{font-size:0.9rem;font-weight:700;color:var(--white);margin-top:3px;}
+.contact-social-title{font-family:var(--font-display);font-size:1.9rem;letter-spacing:0.04em;color:var(--white);margin-bottom:8px;}
+.contact-social-sub{font-size:0.82rem;color:var(--muted);margin-bottom:28px;}
+.social-full-grid{display:flex;flex-direction:column;gap:12px;}
+.sf-card{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);background:rgba(255,255,255,0.02);text-decoration:none;transition:all 0.3s;position:relative;overflow:hidden;}
+.sf-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;}
+.sf-card:hover::before{opacity:1;}
+.sf-card:hover{transform:translateX(4px);}
+.sf-fb{border-color:rgba(24,119,242,0.25);}
+.sf-fb::before{background:rgba(24,119,242,0.07);}
+.sf-fb:hover{box-shadow:0 0 20px rgba(24,119,242,0.2);}
+.sf-ig{border-color:rgba(255,45,120,0.25);}
+.sf-ig::before{background:rgba(255,45,120,0.07);}
+.sf-ig:hover{box-shadow:0 0 20px rgba(255,45,120,0.2);}
+.sf-yt{border-color:rgba(255,0,0,0.25);}
+.sf-yt::before{background:rgba(255,0,0,0.07);}
+.sf-yt:hover{box-shadow:0 0 20px rgba(255,0,0,0.2);}
+.sf-tt{border-color:rgba(0,229,255,0.25);}
+.sf-tt::before{background:rgba(0,229,255,0.07);}
+.sf-tt:hover{box-shadow:0 0 20px rgba(0,229,255,0.2);}
+.sf-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;}
+.sf-icon svg{width:22px;height:22px;fill:currentColor;}
+.sfic-fb{background:rgba(24,119,242,0.18);color:#1877f2;}
+.sfic-ig{background:linear-gradient(135deg,rgba(255,45,120,0.2),rgba(155,0,255,0.2));color:var(--pink);}
+.sfic-yt{background:rgba(255,0,0,0.18);color:#ff0000;}
+.sfic-tt{background:rgba(0,229,255,0.15);color:var(--cyan);}
+.sf-info{position:relative;z-index:1;}
+.sf-name{font-size:0.85rem;font-weight:700;color:var(--white);}
+.sf-handle{font-size:0.7rem;color:var(--muted);margin-top:2px;}
+.sf-arrow{margin-left:auto;font-size:1rem;color:var(--muted);position:relative;z-index:1;transition:transform 0.3s;}
+.sf-card:hover .sf-arrow{transform:translateX(4px);color:var(--white);}
+
+/* FOOTER */
+footer{background:var(--darker);border-top:1px solid rgba(255,45,120,0.12);padding:52px 56px;text-align:center;}
+.footer-logo-big{font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);letter-spacing:0.06em;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--cyan),var(--pink));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 4s linear infinite;line-height:1;margin-bottom:12px;}
+.footer-sub{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);}
+.footer-divider{width:80px;height:2px;margin:32px auto;background:linear-gradient(90deg,var(--pink),var(--cyan));border-radius:2px;}
+.footer-links{display:flex;gap:36px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;transition:color 0.3s;}
+.footer-links a:hover{color:var(--pink);}
+.footer-copy{font-size:0.68rem;color:rgba(160,155,192,0.5);letter-spacing:0.06em;}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(3,2,8,0.96);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;}
+.lightbox.open{display:flex;}
+.lb-img{max-width:90vw;max-height:88vh;border-radius:8px;object-fit:contain;box-shadow:0 0 60px rgba(255,45,120,0.2);}
+.lb-close{position:absolute;top:20px;right:28px;font-size:2.2rem;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1;transition:color 0.2s;}
+.lb-close:hover{color:var(--pink);}
+.lb-caption{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--font-display);font-size:1.1rem;letter-spacing:0.06em;color:var(--white);text-align:center;pointer-events:none;}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:16px 24px;}nav.scrolled{padding:12px 24px;}
+  .nav-links{display:none;}.hamburger{display:flex;}
+  .section-inner{padding:80px 28px;}
+  .about-grid{grid-template-columns:1fr;gap:48px;}
+  .social-grid{grid-template-columns:1fr 1fr;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .photo-masonry{grid-template-columns:1fr 1fr;grid-auto-rows:190px;}
+  .photo-masonry .pm-item.wide{grid-column:span 2;}
+  .video-grid{grid-template-columns:1fr;}
+  .contact-wrap{grid-template-columns:1fr;gap:52px;}
+  footer{padding:44px 28px;}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr;}
+  .photo-masonry{grid-template-columns:1fr;grid-auto-rows:200px;}
+  .photo-masonry .pm-item.tall,.photo-masonry .pm-item.wide{grid-row:span 1;grid-column:span 1;}
+  .social-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">RAHIM EVENTS</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-backdrop"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-badge"><div class="badge-dot"></div> Chittagong, Bangladesh</div>
+  <h1 class="hero-title">
+    <span class="line1">MAKING</span>
+    <span class="line2">MAGIC</span>
+  </h1>
+  <p class="hero-sub">Sound &nbsp;·&nbsp; <span>Video</span> &nbsp;·&nbsp; Photo &nbsp;·&nbsp; <span>DJ</span> &nbsp;·&nbsp; Lighting &nbsp;·&nbsp; <span>Stage</span></p>
+  <div class="hero-btns">
+    <a href="#portfolio" class="btn btn-glow">See Our Work</a>
+    <a href="#contact" class="btn btn-outline">Book Your Event</a>
+  </div>
+  <div class="hero-scroll-cue"><div class="scroll-dot"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-wrap">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-box">
+        <!--
+          DELETE the div below and replace with:
+          <img src="profile.jpg"
+               style="width:100%;aspect-ratio:3/4;object-fit:cover;
+                      border-radius:6px;border:2px solid rgba(255,45,120,0.3);"
+               alt="Md. Rahim">
+        -->
+        <div class="about-photo">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Your Photo Here</span>
+        </div>
+        <div class="photo-corner tl"></div><div class="photo-corner tr"></div>
+        <div class="photo-corner bl"></div><div class="photo-corner br"></div>
+        <div class="about-glow"></div>
+      </div>
+      <div class="about-text">
+        <span class="section-tag tag-pink">Who I Am</span>
+        <h2 class="section-title grad-pink">The Face Behind<br/>Every Party</h2>
+        <div class="section-line"></div>
+        <p>Hello! I'm <strong>Md. Rahim</strong>, a wedding and event production specialist based in <em>Chittagong, Bangladesh</em>. For years I have been turning ordinary events into extraordinary celebrations.</p>
+        <p>I handle everything — <strong>crystal-clear sound</strong>, <strong>cinematic video</strong>, <strong>stunning photography</strong>, <strong>energetic DJ sets</strong>, <strong>dramatic lighting</strong>, and <strong>jaw-dropping stage decoration</strong> — all under one roof.</p>
+        <p>Whether it's a grand wedding, an intimate holud, or a vibrant reception, I bring full energy and creativity to every event.</p>
+        <div class="social-grid">
+          <a href="https://facebook.com/YourPage" target="_blank" class="social-card fb">
+            <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+            <div class="social-info"><div class="social-name">Facebook</div><div class="social-handle">@RahimEvents</div></div>
+          </a>
+          <a href="https://instagram.com/YourProfile" target="_blank" class="social-card ig">
+            <div class="social-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="1.8"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2.5"/></svg></div>
+            <div class="social-info"><div class="social-name">Instagram</div><div class="social-handle">@RahimEvents</div></div>
+          </a>
+          <a href="https://youtube.com/@YourChannel" target="_blank" class="social-card yt">
+            <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--darker)"/></svg></div>
+            <div class="social-info"><div class="social-name">YouTube</div><div class="social-handle">Rahim Events BD</div></div>
+          </a>
+          <a href="https://tiktok.com/@YourProfile" target="_blank" class="social-card tt">
+            <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.89a8.18 8.18 0 004.79 1.53V7a4.85 4.85 0 01-1.02-.31z"/></svg></div>
+            <div class="social-info"><div class="social-name">TikTok</div><div class="social-handle">@RahimEvents</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SERVICES — BACKGROUND IMAGE CARDS
+     ───────────────────────────────────────────
+     HOW TO ADD BACKGROUND IMAGES:
+     1. Download photos from unsplash.com
+     2. Rename: s1.jpg s2.jpg s3.jpg s4.jpg s5.jpg s6.jpg
+     3. Upload all files to your GitHub repo (same folder as index.html)
+     4. On each card below, add:  style="background-image:url('s1.jpg')"
+        Example:
+        <div class="service-card" style="background-image:url('s1.jpg')">
+     The dark overlay & text are automatic — no other changes needed!
+═══════════════════════════════════════════ -->
+<section id="services" class="section-wrap">
+  <div class="section-inner">
+    <div class="services-header">
+      <span class="section-tag tag-cyan">What We Do</span>
+      <h2 class="section-title grad-cyan">Our Services</h2>
+      <div class="section-line"></div>
+      <p style="font-size:0.85rem;color:var(--muted);max-width:500px;margin:0 auto">Everything your event needs, handled by one passionate team.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- CARD 1 — Sound System
+           ADD IMAGE: style="background-image:url('s1.jpg')"
+           Unsplash search: "concert speakers sound system" -->
+      <div class="service-card" style="background-image:url('images/soundsystem.jpg')">
+        <div class="service-num">01</div>
+        <div class="service-content">
+          <div class="service-icon ic-1">
+            <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3>Sound System</h3>
+          <p>Professional speakers, subwoofers & mixers delivering crystal-clear audio to every corner — from intimate halls to massive outdoor venues.</p>
+          <span class="s-tag s-tag-1">Pro Audio</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 — Videography
+           ADD IMAGE: style="background-image:url('s2.jpg')"
+           Unsplash search: "wedding videography camera" -->
+      <div class="service-card" style="background-image:url('images/videography.jpg')">
+        <div class="service-num">02</div>
+        <div class="service-content">
+          <div class="service-icon ic-2">
+            <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </div>
+          <h3>Videography</h3>
+          <p>Cinematic 4K wedding films with drone shots. Real emotions captured and crafted into a film you'll re-watch every anniversary.</p>
+          <span class="s-tag s-tag-2">4K Cinematic</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 — Photography
+           ADD IMAGE: style="background-image:url('s3.jpg')"
+           Unsplash search: "wedding photography portrait" -->
+      <div class="service-card" style="background-image:url('images/photography.jpg')">
+        <div class="service-num">03</div>
+        <div class="service-content">
+          <div class="service-icon ic-3">
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <h3>Photography</h3>
+          <p>Candid storytelling blended with artistic portraits. Every smile, every tear, every precious moment — captured forever.</p>
+          <span class="s-tag s-tag-3">HD Gallery</span>
+        </div>
+      </div>
+
+      <!-- CARD 4 — DJ
+           ADD IMAGE: style="background-image:url('s4.jpg')"
+           Unsplash search: "dj console party night" -->
+      <div class="service-card" style="background-image:url('images/dj.jpg')">
+        <div class="service-num">04</div>
+        <div class="service-content">
+          <div class="service-icon ic-4">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>DJ Performance</h3>
+          <p>From first dance to last song — Bangla, Hindi & international hits mixed live, keeping every guest on the dance floor all night long.</p>
+          <span class="s-tag s-tag-4">Live Mix</span>
+        </div>
+      </div>
+
+      <!-- CARD 5 — Lighting
+           ADD IMAGE: style="background-image:url('s5.jpg')"
+           Unsplash search: "event lighting led stage" -->
+      <div class="service-card" style="background-image:url('images/lighting.jpg')">
+        <div class="service-num">05</div>
+        <div class="service-content">
+          <div class="service-icon ic-5">
+            <svg viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 006 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg>
+          </div>
+          <h3>Lighting Design</h3>
+          <p>Fairy lights, uplighting, LED rigs & moving heads — transforming any venue into a dreamlike, magical atmosphere.</p>
+          <span class="s-tag s-tag-5">LED Effects</span>
+        </div>
+      </div>
+
+      <!-- CARD 6 — Stage Decoration
+           ADD IMAGE: style="background-image:url('s6.jpg')"
+           Unsplash search: "wedding stage floral decoration" -->
+   <div class="service-card" style="background-image:url('images/stage.jpg')">
+        <div class="service-num">06</div>
+        <div class="service-content">
+          <div class="service-icon ic-6">
+            <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3>Stage Decoration</h3>
+          <p>Floral arches, fabric draping, custom backdrops & themed props. Stages that become the centrepiece everyone photographs all evening.</p>
+          <span class="s-tag s-tag-6">Custom Design</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO — STACKING POLAROID -->
+<section id="portfolio" class="section-wrap">
+  <div class="section-inner">
+
+    <div class="portfolio-header">
+      <span class="section-tag tag-yellow">Our Work</span>
+      <h2 class="section-title grad-yellow">Best Moments</h2>
+      <div class="section-line"></div>
+
+      <!-- main tabs: Photos / Videos -->
+      <div class="cat-tabs" style="margin-bottom:0">
+        <button class="cat-tab active" onclick="switchMainTab(this,'stack')">📷 Photos</button>
+        <button class="cat-tab" onclick="switchMainTab(this,'videos')">🎬 Videos</button>
+      </div>
+    </div>
+
+    <!-- ══ PHOTO STACKS PANEL ══ -->
+    <div class="tab-panel active" id="tab-stack">
+
+      <!-- category pills -->
+      <div class="cat-tabs" style="margin-bottom:52px">
+        <button class="cat-tab active" onclick="switchCat(this,'bridal')">👰 Bridal</button>
+        <button class="cat-tab" onclick="switchCat(this,'stage')">🌸 Stage Deco</button>
+        <button class="cat-tab" onclick="switchCat(this,'holud')">🌼 Holud</button>
+        <button class="cat-tab" onclick="switchCat(this,'ceremony')">💍 Grand Ceremony</button>
+        <button class="cat-tab" onclick="switchCat(this,'dj')">🎧 DJ & Lights</button>
+      </div>
+
+      <!-- ── BRIDAL ── -->
+      <!--
+        HOW TO ADD PHOTOS:
+        Inside each .polaroid-img, replace the .polaroid-placeholder div with:
+        <img src="images/bridal1.jpg" alt="Bridal Photo 1">
+        Use folder name: images/
+        File names suggested below for each card.
+      -->
+      <div class="stack-section active" id="cat-bridal">
+        <div class="stack-label">
+          <div class="stack-label-dot" style="background:var(--pink);color:var(--pink)"></div>
+          <h3>Bridal <span style="color:var(--pink)">Portraits</span></h3>
+          <span style="background:rgba(255,45,120,0.15);color:var(--pink);border:1px solid rgba(255,45,120,0.3)">5 Photos</span>
+        </div>
+        <div class="stack-container" id="stack-bridal">
+          <!-- Card 1 -->
+          <div class="polaroid" style="transform:rotate(-14deg);z-index:1;left:calc(50% - 260px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--pink)">1</div>
+            <div class="polaroid-img">
+              <!-- REPLACE with: <img src="images/bridal1.jpg" alt="Bridal 1"> -->
+              <div class="polaroid-placeholder" style="background:linear-gradient(135deg,#2a0318,#120010)">
+                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>bridal1.jpg</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">Bridal Glow ✨</div>
+          </div>
+          <!-- Card 2 -->
+          <div class="polaroid" style="transform:rotate(-6deg);z-index:2;left:calc(50% - 130px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--pink)">2</div>
+            <div class="polaroid-img">
+              <div class="polaroid-placeholder" style="background:linear-gradient(135deg,#2a0a1a,#150010)">
+                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>bridal2.jpg</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">The Bride 💕</div>
+          </div>
+          <!-- Card 3 — top/front -->
+          <div class="polaroid" style="transform:rotate(2deg);z-index:5;left:calc(50% - 110px);top:-10px" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--pink)">3</div>
+            <div class="polaroid-img">
+              <div class="polaroid-placeholder" style="background:linear-gradient(135deg,#300520,#18000e)">
+                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>bridal3.jpg</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">Jewellery Close-up 💎</div>
+          </div>
+          <!-- Card 4 -->
+          <div class="polaroid" style="transform:rotate(9deg);z-index:3;left:calc(50% + 10px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--pink)">4</div>
+            <div class="polaroid-img">
+              <div class="polaroid-placeholder" style="background:linear-gradient(135deg,#200520,#100010)">
+                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>bridal4.jpg</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">Mehndi Hands 🌹</div>
+          </div>
+          <!-- Card 5 -->
+          <div class="polaroid" style="transform:rotate(16deg);z-index:2;left:calc(50% + 140px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--pink)">5</div>
+            <div class="polaroid-img">
+              <div class="polaroid-placeholder" style="background:linear-gradient(135deg,#280318,#120010)">
+                <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>bridal5.jpg</span>
+              </div>
+            </div>
+            <div class="polaroid-caption">Ready to Wed 👰</div>
+          </div>
+        </div>
+        <p class="stack-hint">hover over a photo to bring it forward</p>
+      </div>
+
+      <!-- ── STAGE DECORATION ── -->
+      <div class="stack-section" id="cat-stage">
+        <div class="stack-label">
+          <div class="stack-label-dot" style="background:var(--orange);color:var(--orange)"></div>
+          <h3>Stage <span style="color:var(--orange)">Decoration</span></h3>
+          <span style="background:rgba(255,107,0,0.15);color:var(--orange);border:1px solid rgba(255,107,0,0.3)">5 Photos</span>
+        </div>
+        <div class="stack-container" id="stack-stage">
+          <div class="polaroid" style="transform:rotate(-13deg);z-index:1;left:calc(50% - 260px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--orange)">1</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#2a1000,#150800)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>stage1.jpg</span></div></div>
+            <div class="polaroid-caption">Floral Arch 🌸</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(-5deg);z-index:2;left:calc(50% - 130px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--orange)">2</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#221000,#120800)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>stage2.jpg</span></div></div>
+            <div class="polaroid-caption">Gold & White 🤍</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(3deg);z-index:5;left:calc(50% - 110px);top:-10px" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--orange)">3</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#2e1400,#181000)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>stage3.jpg</span></div></div>
+            <div class="polaroid-caption">Grand Backdrop ✨</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(8deg);z-index:3;left:calc(50% + 10px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--orange)">4</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#241200,#120a00)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>stage4.jpg</span></div></div>
+            <div class="polaroid-caption">Draping Detail 🎀</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(15deg);z-index:2;left:calc(50% + 140px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--orange)">5</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#281400,#140c00)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>stage5.jpg</span></div></div>
+            <div class="polaroid-caption">Full Stage View 🏛️</div>
+          </div>
+        </div>
+        <p class="stack-hint">hover over a photo to bring it forward</p>
+      </div>
+
+      <!-- ── HOLUD CEREMONY ── -->
+      <div class="stack-section" id="cat-holud">
+        <div class="stack-label">
+          <div class="stack-label-dot" style="background:var(--yellow);color:var(--yellow)"></div>
+          <h3>Holud <span style="color:var(--yellow)">Ceremony</span></h3>
+          <span style="background:rgba(255,230,0,0.12);color:var(--yellow);border:1px solid rgba(255,230,0,0.3)">5 Photos</span>
+        </div>
+        <div class="stack-container" id="stack-holud">
+          <div class="polaroid" style="transform:rotate(-15deg);z-index:1;left:calc(50% - 260px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--yellow);color:#000">1</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#1e1800,#0e0e00)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>holud1.jpg</span></div></div>
+            <div class="polaroid-caption">Turmeric Glow 🌟</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(-6deg);z-index:2;left:calc(50% - 130px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--yellow);color:#000">2</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#1a1600,#0c0c00)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>holud2.jpg</span></div></div>
+            <div class="polaroid-caption">Family Blessing 🙏</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(2deg);z-index:5;left:calc(50% - 110px);top:-10px" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--yellow);color:#000">3</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#201a00,#100e00)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>holud3.jpg</span></div></div>
+            <div class="polaroid-caption">Flower Shower 🌼</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(9deg);z-index:3;left:calc(50% + 10px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--yellow);color:#000">4</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#1c1800,#0e0c00)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>holud4.jpg</span></div></div>
+            <div class="polaroid-caption">Yellow Stage 💛</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(17deg);z-index:2;left:calc(50% + 140px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--yellow);color:#000">5</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#1e1a00,#0e0e00)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>holud5.jpg</span></div></div>
+            <div class="polaroid-caption">Joy & Dance 🎶</div>
+          </div>
+        </div>
+        <p class="stack-hint">hover over a photo to bring it forward</p>
+      </div>
+
+      <!-- ── GRAND CEREMONY ── -->
+      <div class="stack-section" id="cat-ceremony">
+        <div class="stack-label">
+          <div class="stack-label-dot" style="background:var(--cyan);color:var(--cyan)"></div>
+          <h3>Grand <span style="color:var(--cyan)">Ceremony</span></h3>
+          <span style="background:rgba(0,229,255,0.1);color:var(--cyan);border:1px solid rgba(0,229,255,0.3)">5 Photos</span>
+        </div>
+        <div class="stack-container" id="stack-ceremony">
+          <div class="polaroid" style="transform:rotate(-12deg);z-index:1;left:calc(50% - 260px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--cyan);color:#000">1</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#001820,#000810)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>ceremony1.jpg</span></div></div>
+            <div class="polaroid-caption">Akad Nikah 💍</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(-4deg);z-index:2;left:calc(50% - 130px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--cyan);color:#000">2</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#001420,#00080e)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>ceremony2.jpg</span></div></div>
+            <div class="polaroid-caption">The Couple 💞</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(3deg);z-index:5;left:calc(50% - 110px);top:-10px" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--cyan);color:#000">3</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#001a22,#000a12)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>ceremony3.jpg</span></div></div>
+            <div class="polaroid-caption">Grand Hall 🏛️</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(10deg);z-index:3;left:calc(50% + 10px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--cyan);color:#000">4</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#001620,#000a10)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>ceremony4.jpg</span></div></div>
+            <div class="polaroid-caption">Family Portrait 👨‍👩‍👧</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(16deg);z-index:2;left:calc(50% + 140px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:var(--cyan);color:#000">5</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#001820,#000c12)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>ceremony5.jpg</span></div></div>
+            <div class="polaroid-caption">Reception Night 🌙</div>
+          </div>
+        </div>
+        <p class="stack-hint">hover over a photo to bring it forward</p>
+      </div>
+
+      <!-- ── DJ & LIGHTS ── -->
+      <div class="stack-section" id="cat-dj">
+        <div class="stack-label">
+          <div class="stack-label-dot" style="background:#c97fff;color:#c97fff"></div>
+          <h3>DJ <span style="color:#c97fff">& Lights</span></h3>
+          <span style="background:rgba(155,0,255,0.15);color:#c97fff;border:1px solid rgba(155,0,255,0.3)">5 Photos</span>
+        </div>
+        <div class="stack-container" id="stack-dj">
+          <div class="polaroid" style="transform:rotate(-14deg);z-index:1;left:calc(50% - 260px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:#9b00ff">1</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#100020,#060010)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>dj1.jpg</span></div></div>
+            <div class="polaroid-caption">DJ Setup 🎧</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(-5deg);z-index:2;left:calc(50% - 130px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:#9b00ff">2</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#0e001e,#08000e)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>dj2.jpg</span></div></div>
+            <div class="polaroid-caption">LED Rig 🌈</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(2deg);z-index:5;left:calc(50% - 110px);top:-10px" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:#9b00ff">3</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#120022,#080012)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>dj3.jpg</span></div></div>
+            <div class="polaroid-caption">Dance Floor 🕺</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(9deg);z-index:3;left:calc(50% + 10px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:#9b00ff">4</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#0e001c,#060010)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>dj4.jpg</span></div></div>
+            <div class="polaroid-caption">Fairy Lights ✨</div>
+          </div>
+          <div class="polaroid" style="transform:rotate(15deg);z-index:2;left:calc(50% + 140px)" onclick="openLightbox(this)">
+            <div class="polaroid-badge" style="background:#9b00ff">5</div>
+            <div class="polaroid-img"><div class="polaroid-placeholder" style="background:linear-gradient(135deg,#10001e,#060010)"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg><span>dj5.jpg</span></div></div>
+            <div class="polaroid-caption">Party Night 🔥</div>
+          </div>
+        </div>
+        <p class="stack-hint">hover over a photo to bring it forward</p>
+      </div>
+
+    </div><!-- end tab-stack -->
+
+    <!-- ══ VIDEOS PANEL ══ -->
+    <div class="tab-panel" id="tab-videos">
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="yt-wrap" id="yt1">
+            <div class="yt-placeholder" onclick="loadYT('yt1','YOUR_VIDEO_ID_1')">
+              <div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <p>Click to play · Wedding Highlight Film</p>
+            </div>
+          </div>
+          <div class="video-info"><h4>Wedding Highlight Film</h4><p>A cinematic 4K wedding highlight showcasing our full production — ceremony to reception.</p><div class="video-meta"><span class="video-tag">Videography</span><span class="video-tag" style="background:rgba(255,230,0,0.1);color:var(--yellow)">4K</span></div></div>
+        </div>
+        <div class="video-card">
+          <div class="yt-wrap" id="yt2">
+            <div class="yt-placeholder" onclick="loadYT('yt2','YOUR_VIDEO_ID_2')">
+              <div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <p>Click to play · Holud Ceremony</p>
+            </div>
+          </div>
+          <div class="video-info"><h4>Holud Ceremony Film</h4><p>Full coverage of a vibrant holud evening — music, colour, and all the joy beautifully captured.</p><div class="video-meta"><span class="video-tag">Videography</span><span class="video-tag" style="background:rgba(255,107,0,0.12);color:var(--orange)">Full Event</span></div></div>
+        </div>
+        <div class="video-card">
+          <div class="yt-wrap" id="yt3">
+            <div class="yt-placeholder" onclick="loadYT('yt3','YOUR_VIDEO_ID_3')">
+              <div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <p>Click to play · DJ Night</p>
+            </div>
+          </div>
+          <div class="video-info"><h4>Grand DJ Night Highlights</h4><p>Energy, lights, music — a recap of an unforgettable DJ night with our full lighting rig.</p><div class="video-meta"><span class="video-tag" style="background:rgba(155,0,255,0.15);color:#c97fff">DJ</span><span class="video-tag" style="background:rgba(0,255,157,0.1);color:var(--green)">Lighting</span></div></div>
+        </div>
+        <div class="video-card">
+          <div class="yt-wrap" id="yt4">
+            <div class="yt-placeholder" onclick="loadYT('yt4','YOUR_VIDEO_ID_4')">
+              <div class="yt-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <p>Click to play · Stage Setup Timelapse</p>
+            </div>
+          </div>
+          <div class="video-info"><h4>Stage Setup Timelapse</h4><p>Watch us transform a bare venue into a breathtaking floral stage in this behind-the-scenes timelapse.</p><div class="video-meta"><span class="video-tag" style="background:rgba(255,107,0,0.12);color:var(--orange)">Stage Deco</span><span class="video-tag" style="background:rgba(255,230,0,0.1);color:var(--yellow)">BTS</span></div></div>
+        </div>
+      </div>
+      <div class="yt-howto">
+        <div class="yt-howto-icon">💡</div>
+        <p><strong style="color:var(--white)">How to add YouTube videos:</strong> Open your video on YouTube. The URL is <code>youtube.com/watch?v=<strong>XXXXXXXXXXX</strong></code>. Copy the bold part (Video ID). In <code>index.html</code>, find <code>YOUR_VIDEO_ID_1</code> etc. and replace each with your actual ID. Push to GitHub — done!</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-wrap">
+  <div class="section-inner">
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <span class="section-tag tag-purple">Get In Touch</span>
+        <h2 class="section-title" style="background:linear-gradient(90deg,var(--white),#c97fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px">Book Your<br/>Dream Event</h2>
+        <div class="section-line"></div>
+        <p>Ready to make your celebration unforgettable? Reach out via any channel — we're always happy to chat about your vision and bring it to life.</p>
+        <div class="contact-cards">
+          <a href="tel:+8801XXXXXXXXX" class="contact-card cc-phone">
+            <div class="cc-icon phone-ic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.88 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="cc-text"><div class="cc-label">Phone</div><div class="cc-value">+880 1XXX-XXXXXX</div></div>
+          </a>
+          <a href="mailto:rahimevents@gmail.com" class="contact-card cc-email">
+            <div class="cc-icon email-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="cc-text"><div class="cc-label">Email</div><div class="cc-value">rahimevents@gmail.com</div></div>
+          </a>
+          <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="contact-card cc-wa">
+            <div class="cc-icon wa-ic"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.128.558 4.127 1.528 5.857L0 24l6.337-1.508A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.498-5.193-1.369l-.37-.221-3.762.895.948-3.666-.242-.38A9.945 9.945 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></div>
+            <div class="cc-text"><div class="cc-label">WhatsApp</div><div class="cc-value">Chat on WhatsApp</div></div>
+          </a>
+          <a href="https://m.me/YourFacebookPage" target="_blank" class="contact-card cc-msg">
+            <div class="cc-icon msg-ic"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.906 1.327 5.503 3.405 7.238V22l3.178-1.75A10.6 10.6 0 0012 20.486c5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.077 12.436l-2.542-2.714-4.962 2.714 5.455-5.79 2.6 2.714 4.9-2.714-5.451 5.79z"/></svg></div>
+            <div class="cc-text"><div class="cc-label">Facebook Messenger</div><div class="cc-value">Send a Message</div></div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-social-title">Follow Our Work</div>
+        <p class="contact-social-sub">Stay updated with our latest events, behind-the-scenes and reels on social media.</p>
+        <div class="social-full-grid">
+          <a href="https://facebook.com/YourPage" target="_blank" class="sf-card sf-fb">
+            <div class="sf-icon sfic-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+            <div class="sf-info"><div class="sf-name">Facebook</div><div class="sf-handle">facebook.com/YourPage</div></div>
+            <span class="sf-arrow">→</span>
+          </a>
+          <a href="https://instagram.com/YourProfile" target="_blank" class="sf-card sf-ig">
+            <div class="sf-icon sfic-ig"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="1.8"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2.5"/></svg></div>
+            <div class="sf-info"><div class="sf-name">Instagram</div><div class="sf-handle">instagram.com/YourProfile</div></div>
+            <span class="sf-arrow">→</span>
+          </a>
+          <a href="https://youtube.com/@YourChannel" target="_blank" class="sf-card sf-yt">
+            <div class="sf-icon sfic-yt"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--darker)"/></svg></div>
+            <div class="sf-info"><div class="sf-name">YouTube</div><div class="sf-handle">youtube.com/@YourChannel</div></div>
+            <span class="sf-arrow">→</span>
+          </a>
+          <a href="https://tiktok.com/@YourProfile" target="_blank" class="sf-card sf-tt">
+            <div class="sf-icon sfic-tt"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.89a8.18 8.18 0 004.79 1.53V7a4.85 4.85 0 01-1.02-.31z"/></svg></div>
+            <div class="sf-info"><div class="sf-name">TikTok</div><div class="sf-handle">tiktok.com/@YourProfile</div></div>
+            <span class="sf-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo-big">RAHIM EVENTS</div>
+  <p class="footer-sub">Wedding & Event Production · Chittagong, Bangladesh</p>
+  <div class="footer-divider"></div>
+  <div class="footer-links">
+    <a href="#about">About</a><a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a><a href="#contact">Book Now</a>
+  </div>
+  <p class="footer-copy">© 2025 Rahim Events · Made with ❤️ for every celebration</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt=""/>
+  <div class="lb-caption" id="lb-cap"></div>
+</div>
+
+<script>
+/* PARTICLES */
+(function(){
+  const colors=['#ff2d78','#00e5ff','#ffe600','#9b00ff','#ff6b00','#00ff9d'];
+  const c=document.getElementById('particles');
+  for(let i=0;i<30;i++){
+    const d=document.createElement('div');d.className='particle';
+    const s=Math.random()*6+3,col=colors[Math.floor(Math.random()*colors.length)];
+    d.style.cssText=`width:${s}px;height:${s}px;background:${col};box-shadow:0 0 ${s*3}px ${col};left:${Math.random()*100}%;bottom:-10px;animation-delay:${Math.random()*12}s;animation-duration:${Math.random()*14+10}s;`;
+    c.appendChild(d);
+  }
+})();
+
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+
+/* HAMBURGER */
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
+/* MAIN TAB: Photos / Videos */
+function switchMainTab(btn,id){
+  document.querySelectorAll('.portfolio-header .cat-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+}
+
+/* CATEGORY STACK switcher */
+function switchCat(btn,id){
+  document.querySelectorAll('#tab-stack .cat-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.stack-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('cat-'+id).classList.add('active');
+}
+
+/* YOUTUBE LAZY LOAD */
+function loadYT(wrapperId,videoId){
+  if(videoId.startsWith('YOUR_VIDEO_ID')){
+    alert('⚠️ Replace '+videoId+' with a real YouTube video ID in index.html');return;
+  }
+  document.getElementById(wrapperId).innerHTML=
+    `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+     allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+     allowfullscreen></iframe>`;
+}
+
+/* LIGHTBOX — works for polaroid cards */
+function openLightbox(item){
+  const img=item.querySelector('img');
+  if(!img)return; // only open if a real <img> exists inside
+  const cap=item.querySelector('.polaroid-caption');
+  document.getElementById('lb-img').src=img.src;
+  document.getElementById('lb-cap').textContent=cap?cap.textContent:'';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+
+/* SCROLL REVEAL */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0) scale(1)';}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.service-card,.video-card,.social-card,.contact-card,.sf-card').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(26px) scale(0.97)';
+  el.style.transition='opacity 0.55s ease,transform 0.55s ease';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
